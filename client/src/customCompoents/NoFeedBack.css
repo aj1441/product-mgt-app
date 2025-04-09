@@ -1,0 +1,33 @@
+.no-feedback {
+    text-align: center;
+    padding: 2rem;
+    color: #3A4374;
+  }
+  
+  .no-feedback img {
+    width: 50%;
+    max-width: 300px;
+    margin-bottom: 1rem;
+  }
+  
+  .no-feedback h2 {
+    margin: 0.5rem 0;
+    font-size: 1.2rem;
+  }
+  
+  .no-feedback p {
+    color: #647196;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+  }
+  
+  .add-feedback-btn {
+    background-color: #AD1FEA;
+    color: white;
+    padding: 8px 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  

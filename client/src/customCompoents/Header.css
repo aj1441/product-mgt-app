@@ -1,0 +1,46 @@
+.header {
+    background: linear-gradient(90deg, #AD1FEA, #4661E6);
+    padding: 1rem;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 1100;
+  }
+  
+  .header__branding h1 {
+    margin: 0;
+    font-size: 0.95rem;
+  }
+  
+  .header__branding p {
+    margin: 0;
+    font-size: 0.75rem;
+    opacity: 0.9;
+  }
+  
+  .header__actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  /* .add-feedback-btn {
+    background-color: white;
+    color: #AD1FEA;
+    padding: 6px 12px;
+    border: none;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+  } */
+  
+  .menu-btn {
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+  }
+  

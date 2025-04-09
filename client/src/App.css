@@ -1,42 +1,145 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+:root {
+  font-family: jost, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  --light-purple: #F2F4FF; /* for category background, body background, inputs */
+  --whitest-white: #FFFFFF; /* for white font */
+  --dark-white: #F7F8FD;
+  --purple: #AD1FEA; /* color for feture select, button */
+  --true-blue: #4661E6;
+  --bar-dark-blue: #3A4374; /* for card title also*/
+  --dark-navy-blue: #4661E6; /*category font color*/
+  --grey: #647196; /* for card p text, cancel button */
+  --peach: #f49f85;
+  --ocean-blue: #62bCFA;
+
+
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+a:hover {
+  color: #535bf2;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 1.5rem;
+  line-height: 2.188rem;
+  letter-spacing: -0.02625rem;
+}
+h2 {
+  font-size: 1.25rem;
+  line-height: 1.813rem;
+  letter-spacing: -0.02625rem;
+}
+h3 {
+  font-size: 1.125rem;
+  line-height: 1.625rem;
+  letter-spacing: -0.015625rem;
+}
+h4 {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  letter-spacing: -0.0125rem;
+}
+
+button {
+
+}
+button:hover {
+  /* border-color: #646cff; */
+}
+button:focus,
+button:focus-visible {
+  /* outline: 4px auto -webkit-focus-ring-color; */
+}
+/* App.css */
+
+body {
+  margin: 0;
+  background-color: #F7F8FD;
+  font-family: 'Jost', sans-serif;
+}
+
+/* Base layout */
+.home {
+  background-color: #F7F8FD;
+  min-height: 100vh;
+}
+
+/* Mobile sidebar overlay (for Category buttons) */
+.mobile-sidebar-overlay {
+  position: absolute;
+  top: 64px; /* height of header */
+  left: 0;
+  width: 100%;
+  background-color: white;
+  padding: 1rem;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  animation: fadeIn 0.3s ease;
+}
+
+/* Optional: fade in */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media screen and (min-width: 768px) {
+  .mobile-sidebar-overlay {
+    display: none; /* hide mobile dropdown */
   }
-  to {
-    transform: rotate(360deg);
+
+  .category-bar {
+    display: flex;
+    position: static;
+    padding: 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .header {
+    justify-content: flex-start;
+  }
+
+  .main-content {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: 2rem;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+
+/* Example of scaling layout up on tablets+ */
+/* @media screen and (min-width: 768px) {
+  .header {
+    justify-content: space-between;
   }
 }
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
+@media screen and (min-width: 1024px) {
+  .header {
+    justify-content: space-between;
+  }
+} */

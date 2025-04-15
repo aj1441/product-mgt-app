@@ -3,6 +3,7 @@ import Header from '../customCompoents/Header'
 import Category from '../customCompoents/Category'
 import FeedBackTiles from '../customCompoents/FeedBackTiles'
 import NoFeedback from '../customCompoents/NoFeedBack'
+import FeedbackBar from '../customCompoents/FeedbackBar'
 
 function Home() {
   const [showSidebar, setShowSidebar] = useState(false)
@@ -25,11 +26,14 @@ function Home() {
 
       {/* MOBILE CATEGORY MENU */}
       {showSidebar && (
+        <>
+        <div className="grey-out" onClick={() => setShowSidebar(false)} />
         <div className="mobile-sidebar-overlay">
           <Category selected={category} onSelect={setCategory} />
         </div>
+        </>
       )}
-
+      <FeedbackBar />
       <main className="main-content">
         {filteredFeedbacks.length === 0
           ? <NoFeedback />

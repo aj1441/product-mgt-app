@@ -17,4 +17,7 @@
 **/.env
 **/.env.local
 **/*/config.js
-server/src/config.js
+/server/src/config.js
+**/config.js
+/Users/aj/Documents/Dev/product_management_app/server/src/config.js
+

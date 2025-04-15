@@ -7,6 +7,7 @@
     align-items: center;
     position: relative;
     z-index: 1100;
+    min-width: 100%;
   }
   
   .header__branding h1 {
@@ -44,3 +45,17 @@
     cursor: pointer;
   }
   
+  @media screen and (min-width: 768px) {
+    .header {
+      width: 10rem;
+      height: 10rem;
+      flex-direction: column;
+      justify-content: flex-end;
+      border-radius: 10px;
+      margin: 3rem;
+    }
+    
+    .menu-btn {
+      display: none;
+    }
+  }

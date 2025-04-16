@@ -6,8 +6,8 @@
     justify-content: space-between;
     align-items: center;
     position: relative;
-    z-index: 1100;
-    min-width: 100%;
+    z-index: 1000;
+    width: 100%;
   }
   
   .header__branding h1 {
@@ -47,12 +47,23 @@
   
   @media screen and (min-width: 768px) {
     .header {
-      width: 10rem;
-      height: 10rem;
-      flex-direction: column;
-      justify-content: flex-end;
+      width: auto;
+      align-items: flex-end;
+      height: auto;
+      padding: 1rem;
       border-radius: 10px;
-      margin: 3rem;
+      padding: 2rem;
+    }
+
+    .header__branding h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+    
+    .header__branding p {
+      margin: 0;
+      font-size: 1rem;
+      opacity: 0.9;
     }
     
     .menu-btn {

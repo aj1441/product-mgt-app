@@ -120,6 +120,20 @@ button:focus-visible {
   max-width: 100vw;
 }
 
+.top-bar {
+  border: 2px dashed red;
+  background-color: var(--light-purple);
+  display: block; /* default for mobile-first */
+  width: 100%;
+  /* height: 5rem; 64px */
+}
+
+.category-inline {
+  display: none;
+  /* background-color: teal; */
+}
+
+
 .feedback-form-page {
   max-width: 600px;
   margin: 0 auto;
@@ -150,14 +164,14 @@ button:focus-visible {
 
 .mobile-sidebar-overlay {
   position: absolute;
-  top: 4rem; /* 64px */
+  top: 10%; /* 64px */
   right: 0;
   max-width: 70%;
   width: 100%;
   height: 100%;
   background-color: var(--whitest-white);
   padding: 1rem;
-  z-index: 1000;
+  z-index: 1001;
   box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
   animation: fadeIn 0.3s ease;
 }
@@ -194,6 +208,26 @@ button:focus-visible {
   .mobile-sidebar-overlay {
     display: none;
   }
+  .category-inline {
+    display: block;
+    /* background: lime; remove later */
+    border-radius: 10px;
+    padding: 4rem;
+    background-color: var(--whitest-white);
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
+  }
+
+  .top-bar {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; 
+    justify-content: space-between;
+    /* align-items: flex-start; */
+    /* padding: 1rem; */
+    margin: 2rem;
+    gap: 2rem;
+  }
+
+
 
   .category-bar {
     display: flex;
@@ -201,18 +235,28 @@ button:focus-visible {
     padding: 1rem;
     flex-wrap: wrap;
     gap: 0.5rem;
+    padding: 1rem 2rem;
     background: transparent;
     box-shadow: none;
   }
 
-  .header {
-    justify-content: flex-start;
+  .mobile-sidebar-overlay {
+    display: none;
+  }
+
+  .grey-out {
+    display: none;
   }
 
   .main-content {
     display: grid;
-    grid-template-columns: 15.625rem 1fr; /* 250px */
+    grid-template-columns: 15.625rem 1fr; /* 250px + content */
     gap: 2rem;
+  }
+  .home {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
   }
 }
 

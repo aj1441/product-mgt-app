@@ -2,14 +2,22 @@ import { useState } from 'react'
 import './AddFeedbackForm.css'
 
 function AddFeedbackForm({ onSubmitSuccess }) {
-  const [title, setTitle] = useState('')
-  const [detail, setDetail] = useState('')
-  const [category, setCategory] = useState('Feature')
+  const [formData, setFormData] = useState({
+    title: "",
+    category: "",
+    detail: "",
+});
+
+// handle input changes
+const handleChange = (event) => {
+  const { name, value } = event.target;
+  setFormData((prevFormData) => ({ ...prevFormData, [name]: value } ));
+};
 
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    const newFeedback = { title, detail, category }
+    // const newFeedback = { title, detail, category }
 
     try {
       const res = await fetch(`${import.meta.env.VITE_API_URL}/api/feedback`, {
@@ -17,17 +25,16 @@ function AddFeedbackForm({ onSubmitSuccess }) {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(newFeedback),
-      })
-
-      if (res.ok) {
-        setTitle('')
-        setDetail('')
-        setCategory('Feature')
-        onSubmitSuccess?.() // optional callback for parent
-      } else {
-        console.error('Failed to add feedback')
+        body: JSON.stringify({
+          title: formData.title,
+          detail: formData.detail,
+          category: formData.category,
+        }),
+      });
+      if (!response.ok) {
+        throw new Error("Failed to save user data");
       }
+      onSubmit(formData);
     } catch (err) {
       console.error('Error submitting form:', err)
     }
@@ -40,12 +47,9 @@ function AddFeedbackForm({ onSubmitSuccess }) {
         <span className='label-description'>Add a short, descritptive headline</span>
         <input
           type="text"
-          value={title}
-          onChange={(e) => {
-            console.log(e.target.value);
-            setTitle(e.target.value);
-          }}
-          required
+          name='title'
+          value={formData.title}
+          onChange={handleChange}
         />
       </label>
 
@@ -53,8 +57,9 @@ function AddFeedbackForm({ onSubmitSuccess }) {
         Category <br />
         <span className='label-description'>Choose a category for your feedback</span>
         <select
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
+          value={formData.category}
+          name='category'
+          onChange={handleChange}
         >
           <option>Feature</option>
           <option>UI</option>
@@ -68,12 +73,13 @@ function AddFeedbackForm({ onSubmitSuccess }) {
         Feedback Detail <br />
         <span className='label-description'>Include any specific comments on what should be improved, added, etc.</span>
         <textarea
-          value={detail}
-          onChange={(e) => setDetail(e.target.value)}
-          required
+          value={formData.detail}
+          name='detail'
+          rows="7"
+          cols="30"
+          onChange={handleChange}
         />
       </label>
-
       <button type="submit">Add Feedback</button>
     </form>
   )

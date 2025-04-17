@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import './NoFeedback.css'; // Assuming you have a CSS file for styling
+import './NoFeedBack.css'; // Assuming you have a CSS file for styling
 // import {noFeedbackImage} from '../assets/no_feedback.png'; // Adjust the path as necessary
 
 function NoFeedback() {

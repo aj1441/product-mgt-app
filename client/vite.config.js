@@ -6,7 +6,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://countries-api-hmm6.onrender.com', // The backend server URL
+        target: 'https://product-mgt-app.onrender.com', // The backend server URL
         changeOrigin: true,
         secure: false,
         rewrite: (path) => path.replace(/^\/api/, ''), // Remove /api prefix when forwarding to the backend

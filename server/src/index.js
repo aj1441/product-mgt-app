@@ -8,14 +8,14 @@ const { Client } = pg;
 import config from "./config.js"; // Importing the database configuration to test locally
 
 // For remote deployment
-// let config = {
-//   user: process.env.USER,
-//   host: process.env.HOST,
-//   database: process.env.DATABASE,
-//   password: process.env.PASSWORD,
-//   port: process.env.DATABASE_PORT,
-//   ssl: true
-// }
+let config = {
+  user: process.env.USER,
+  host: process.env.HOST,
+  database: process.env.DATABASE,
+  password: process.env.PASSWORD,
+  port: process.env.DATABASE_PORT,
+  ssl: true
+}
 
 const app = express();
 const port = 3000;

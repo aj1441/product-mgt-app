@@ -39,6 +39,7 @@ function Home() {
           </div>
         </>
       )}
+      <section className="desktop-main">
       <FeedbackBar />
       <main className="main-content">
         {filteredFeedbacks.length === 0
@@ -46,6 +47,7 @@ function Home() {
           : filteredFeedbacks.map(fb => <FeedBackTiles key={fb.id} feedback={fb} />)
         }
       </main>
+      </section>
     </div>
   );
 }

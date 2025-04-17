@@ -1,5 +1,4 @@
 //Importing modules
-
 import express from "express";
 import pg from "pg";
 import cors from "cors"; // Importing CORS to handle cross-origin requests  
@@ -17,8 +16,7 @@ let config = {
 
 const app = express();
 const port = 3000;
-// below for remote deployment
-// const allowedOrigins = ['https://countriesapiversion5.netlify.app'];
+const allowedOrigins = ['https://aj-product-management-app.netlify.app'];
 
 
 //Enable CORS in your Express app
@@ -78,59 +76,6 @@ async function getFeedback(category) {
   return result.rows;
 }
 
-//get country click count
-// async function getCountryClickCount(country_code) {
-//   const client = new Client(config);
-//   await client.connect();
-
-//   const result = await client.query(
-//     `SELECT * FROM country_clicks WHERE country_code = $1`,
-//     [country_code]
-//   );
-
-//   await client.end();
-//   return result.rows.length > 0 ? result.rows[0].country_count : 0;
-// }
-
-//helper function to get all country clicks
-// async function getAllCountryClickCounts() {
-//   const client = new Client(config);
-//   await client.connect();
-
-//   const result = await client.query(
-//     `SELECT country_code, country_count FROM country_clicks`
-//   );
-
-//   await client.end();
-
-//   // Convert array of rows to an object map
-//   const counts = {};
-//   result.rows.forEach(row => {
-//     counts[row.country_code] = row.country_count;
-//   });
-
-//   return counts;
-// }
-
-
-//helper function to check if country code exists in the database, if it does, increment the country_count by 1, if it doesn't, add the country code to the database with a country_count of 1
-// async function addCountryClick(country_code) {
-//   const client = new Client(config); // Creating our database Client with our config values
-//   await client.connect(); // Connecting to the database
-
-//   // Increment the country_count by 1, or initialize it with 1 if it doesn't exist; $1 placeholder for country_code and 1 for the first time it was clicked; ON CONFLICT is used to handle the case when the country_code already exists; DO UPDATE SET is used to increment the country_count by 1; [value]
-//   const result = await client.query(
-//     `INSERT INTO country_clicks (country_code, country_count) 
-//          VALUES ($1, 1) 
-//          ON CONFLICT (country_code) 
-//          DO UPDATE SET country_count = country_clicks.country_count + 1
-//          RETURNING country_count`, // Return the updated country_count
-//     [country_code]
-//   );
-//   await client.end(); // Ensure the database connection is closed
-//   // Return the updated country_count
-//   return result.rows[0].country_count;
-// }
 
 
 

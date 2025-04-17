@@ -4,8 +4,6 @@ import express from "express";
 import pg from "pg";
 import cors from "cors"; // Importing CORS to handle cross-origin requests  
 const { Client } = pg;
-// not needed for remote deployment
-import config from "./config.js"; // Importing the database configuration to test locally
 
 // For remote deployment
 let config = {

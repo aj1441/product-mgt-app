@@ -121,7 +121,7 @@ button:focus-visible {
 }
 
 .top-bar {
-  border: 2px dashed red;
+  /* border: 2px dashed red; */
   background-color: var(--light-purple);
   display: block; /* default for mobile-first */
   height: 20%;
@@ -253,8 +253,8 @@ button:focus-visible {
   }
 
   .main-content {
-    display: grid;
-    grid-template-columns: 15.625rem 1fr; /* 250px + content */
+    /* display: grid; */
+    /* grid-template-columns: 15.625rem 1fr; 250px + content */
     gap: 2rem;
   }
   .home {

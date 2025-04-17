@@ -41,7 +41,10 @@ function AddFeedbackForm({ onSubmitSuccess }) {
         <input
           type="text"
           value={title}
-          onChange={(e) => setTitle(e.target.value)}
+          onChange={(e) => {
+            console.log(e.target.value);
+            setTitle(e.target.value);
+          }}
           required
         />
       </label>

@@ -87,6 +87,10 @@ app.post("/api/add-feedback", async (req, res) => {
   console.log("Received feedback data:", req.body); // Log the received data
   // Validate the request body
   const { title, category, description } = req.body;
+  if (!title || !category || !description) {
+    console.log("Missing one or more required fields");
+    return res.status(400).json({ message: "Missing required fields" });
+  }
   try {
     await addFeedback(req.body);
     res.status(201).json({ message: "Feedback added successfully" });

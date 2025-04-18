@@ -46,8 +46,8 @@ async function addFeedback(obj) {
 
     // Insert the user data into the database
     await client.query(
-      `INSERT INTO feedback (title, category, description) VALUES ($1, $2, $3)`,
-      [obj.title, obj.category, obj.description] // Use placeholders for dynamic values
+      `INSERT INTO feedback (title, category, detail) VALUES ($1, $2, $3)`,
+      [obj.title, obj.category, obj.detail] // Use placeholders for dynamic values
     );
   } catch (error) {
     console.error("Error in addFeedback:", error);
@@ -86,8 +86,8 @@ async function getFeedback(category) {
 app.post("/api/add-feedback", async (req, res) => {
   console.log("Received feedback data:", req.body); // Log the received data
   // Validate the request body
-  const { title, category, description } = req.body;
-  if (!title || !category || !description) {
+  const { title, category, detail } = req.body;
+  if (!title || !category || !detail) {
     console.log("Missing one or more required fields");
     return res.status(400).json({ message: "Missing required fields" });
   }

@@ -76,6 +76,9 @@ function AddFeedbackForm({ onSubmitSuccess }) {
           name="category"
           onChange={handleChange}
         >
+          <option value="" disabled>
+            Please make a selection
+          </option>
           <option value="Feature">Feature</option>
           <option value="UI">UI</option>
           <option value="UX">UX</option>

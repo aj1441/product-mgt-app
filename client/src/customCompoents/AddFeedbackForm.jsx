@@ -63,11 +63,11 @@ const handleChange = (event) => {
           name='category'
           onChange={handleChange}
         >
-          <option>Feature</option>
-          <option>UI</option>
-          <option>UX</option>
-          <option>Enhancement</option>
-          <option>Bug</option>
+           <option value="Feature">Feature</option>
+  <option value="UI">UI</option>
+  <option value="UX">UX</option>
+  <option value="Enhancement">Enhancement</option>
+  <option value="Bug">Bug</option>
         </select>
       </label>
 

@@ -32,8 +32,10 @@ const handleChange = (event) => {
         }),
       });
       if (!response.ok) {
-        throw new Error("Failed to save user data");
+        throw new Error(`HTTP error! status: ${response.status}`);
       }
+      const data = await response.json();
+      console.log('Feedback submitted successfully:', data);
       onSubmitSuccess(formData);
     } catch (err) {
       console.error('Error submitting form:', err)

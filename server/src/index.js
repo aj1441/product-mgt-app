@@ -39,6 +39,7 @@ app.listen(port, () => {
 //helper functions
 
 async function addFeedback(obj) {
+  console.log("Adding feedback:", obj); // Log the object being added
   const client = new Client(config); // Create a new database client
   try {
     await client.connect(); // Connect to the database
@@ -83,6 +84,8 @@ async function getFeedback(category) {
 
 //POST   /api/feedback          # Create new feedback
 app.post("/api/add-feedback", async (req, res) => {
+  console.log("Received feedback data:", req.body); // Log the received data
+  // Validate the request body
   const { title, category, description } = req.body;
   try {
     await addFeedback(req.body);
@@ -95,15 +98,21 @@ app.post("/api/add-feedback", async (req, res) => {
 
 //GET    /api/feedback          # List all feedback
 app.get("/api/feedback", async (req, res) => {
+  console.log("Fetching all feedback");
+// Fetch all feedback entries
 let feedback = await getAllFeedback(req.body);
+console.log("Feedback fetched:", feedback); // Log the fetched feedback
 res.json(feedback);
 });
 
 // GET    /api/feedback/:id      # Get a single feedback entry with comments
 app.get("/api/feedback/:category", async (req, res) => {
+  console.log("Fetching feedback for category:", req.params);
+  // Fetch feedback for a specific category
   const { category } = req.params;
   try {
     const feedback = await getFeedback(category);
+    console.log("Feedback fetched for category:", feedback); // Log the fetched feedback
     res.json(feedback);
   } catch (error) {
     console.error("Error fetching feedback:", error);

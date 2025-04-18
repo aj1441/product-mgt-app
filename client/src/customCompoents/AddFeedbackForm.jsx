@@ -18,23 +18,23 @@ const handleChange = (event) => {
     e.preventDefault()
 
     // const newFeedback = { title, detail, category }
-
+    console.log(`${import.meta.env.VITE_API_URL}/api/add-feedback`);
     try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/feedback`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/add-feedback`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           title: formData.title,
-          detail: formData.detail,
           category: formData.category,
+          detail: formData.detail
         }),
       });
       if (!response.ok) {
         throw new Error("Failed to save user data");
       }
-      onSubmit(formData);
+      onSubmitSuccess(formData);
     } catch (err) {
       console.error('Error submitting form:', err)
     }

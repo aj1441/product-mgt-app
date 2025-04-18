@@ -8,12 +8,6 @@ function AddFeedbackForm({ onSubmitSuccess }) {
     detail: "",
   });
 
-  // handle input changes
-  // const handleChange = (event) => {
-  //   const { name, value } = event.target;
-  //   setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
-  // };
-
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
@@ -24,10 +18,10 @@ function AddFeedbackForm({ onSubmitSuccess }) {
     e.preventDefault();
 
     // const newFeedback = { title, detail, category }
-    console.log(`${import.meta.env.VITE_API_URL}/api/add-feedback`);
+    console.log(`${import.meta.env.VITE_API_URL}/add-feedback`);
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/api/add-feedback`,
+        `${import.meta.env.VITE_API_URL}/add-feedback`,
         {
           method: "POST",
           headers: {

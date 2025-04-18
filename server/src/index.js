@@ -31,7 +31,19 @@ app.use(cors()); // This will allow all origins. You can also specify options to
 app.use(express.json());
 
 const client = new Client(config); //creating our database Client with our config values
+// const client = new Client(config);
 
+async function testDatabaseConnection() {
+  try {
+    await client.connect();
+    console.log("Connected to the database successfully!");
+    await client.end();
+  } catch (error) {
+    console.error("Error connecting to the database:", error);
+  }
+}
+
+testDatabaseConnection();
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
@@ -83,7 +95,7 @@ async function getFeedback(category) {
 //API endpoints
 
 //POST   /api/feedback          # Create new feedback
-app.post("/api/add-feedback", async (req, res) => {
+app.post("/add-feedback", async (req, res) => {
   console.log("Received feedback data:", req.body); // Log the received data
   // Validate the request body
   const { title, category, detail } = req.body;
@@ -101,7 +113,7 @@ app.post("/api/add-feedback", async (req, res) => {
 });
 
 //GET    /api/feedback          # List all feedback
-app.get("/api/feedback", async (req, res) => {
+app.get("/feedback", async (req, res) => {
   console.log("Fetching all feedback");
 // Fetch all feedback entries
 let feedback = await getAllFeedback(req.body);
@@ -110,7 +122,7 @@ res.json(feedback);
 });
 
 // GET    /api/feedback/:id      # Get a single feedback entry with comments
-app.get("/api/feedback/:category", async (req, res) => {
+app.get("/feedback/:category", async (req, res) => {
   console.log("Fetching feedback for category:", req.params);
   // Fetch feedback for a specific category
   const { category } = req.params;

@@ -11,7 +11,7 @@ function Home() {
   const [category, setCategory] = useState("All");
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_URL}/api/feedback`)
+    fetch(`${import.meta.env.VITE_API_URL}/feedback`)
       .then((res) => res.json())
       .then((data) => setFeedbacks(data))
       .catch((err) => console.error(err));
